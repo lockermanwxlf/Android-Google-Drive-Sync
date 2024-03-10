@@ -43,6 +43,8 @@ fun HomeScreen(navController: NavController) {
     vm.setAccount(account)
     val signInOptions = GoogleSignInOptions.Builder()
         .requestId()
+        .requestEmail()
+        .requestProfile()
         .apply { MainActivity.SCOPES.forEach { requestScopes(Scope(it)) } }
         .build()
     val signInClient = GoogleSignIn.getClient(context, signInOptions)
